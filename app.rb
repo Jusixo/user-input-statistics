@@ -1,16 +1,33 @@
-puts "enter as many numbers as you'd like, press enter when you're done"
-array = [ ]
-input = gets.chomp
-while
-  input != ""
-  array.push input
-  input = gets.chomp
+puts "Do you want to work with [numbers] or [strings]? "
+choice = gets.chomp
+
+if choice == "numbers"
+  numbers = []
+  loop do
+    puts "Please give me a number: "
+    number = gets.chomp
+    if number.empty?
+      break
+    end
+    numbers << number.to_f
+  end
+
+  total = numbers.sum
+  average = total / numbers.length
+  puts "The total is #{total}"
+  puts "The total average is #{average}"
 end
 
-total =
+if choice == "strings"
+  strings = []
+  loop do
+    puts "Please input a string: "
+    string = gets.chomp
+    if string.empty?
+      break
+    end
+    strings << string
+  end
 
-average = input.sum / input.size.to_f
-
-puts total
-
-puts average
+  puts "Your string is #{strings.join}"
+end
